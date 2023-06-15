@@ -24,11 +24,16 @@ class DatabaseSeeder extends Seeder
             'id'=>1,
             'nom'=>'ss',
             'prenom'=>'sss',
-            'role'=>'partenaire',
-            'email'=>'souzi@gmail.com',
+            'role'=>'admin',
+            'email'=>'admin@gmail.com',
             'password'=>Hash::make('12345678'),
            // 'confirm_password'=>Hash::make('12345678'),
         
         ]);
+
+
+
+
+        
     }
 }

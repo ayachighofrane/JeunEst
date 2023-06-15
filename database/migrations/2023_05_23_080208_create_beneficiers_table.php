@@ -18,13 +18,16 @@ return new class extends Migration
              $table->id();
              $table->unsignedBigInteger('user_id');
              $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-             $table->integer('numero_de_carte')->nullable();
+             $table->unsignedBigInteger('numero_de_carte')->nullable();
              $table->integer('code_pin')->nullable();
              $table->integer('code_postal');
              $table->string('ville');
              $table->date('date_naissance');
              $table->decimal('solde_dispo')->nullable();
+             //$table->string('qr_code')->nullable();
              $table->timestamps();
+             $table->longText('image');
+
          });
      }
  

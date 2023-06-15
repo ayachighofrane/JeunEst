@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,9 @@ Route::post('search/beneficier', [TransactionController::class, 'searchBeneficie
 
 Route::post('signup/partenaire', [AuthController::class, 'signupPartenaire']);
 Route::post('signup/beneficier', [AuthController::class, 'signupBeneficier']);
+
+
+Route::post('/debiter', [TransactionController::class, 'debiter']);
+Route::get('getcart/{id}',[AuthController::class, 'getcart'])->name('getcart');
+
+Route::get('getTransaction/{id}',[AuthController::class, 'getTransaction'])->name('getTransaction');

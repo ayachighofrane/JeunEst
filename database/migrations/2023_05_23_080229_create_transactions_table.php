@@ -19,12 +19,13 @@ return new class extends Migration
             $table->foreign('partenaire_id')->references('id')->on('partenaires')->onDelete('cascade');
             $table->unsignedBigInteger('beneficier_id');
             $table->foreign('beneficier_id')->references('id')->on('beneficiers')->onDelete('cascade');
-            $table->string('statut');
+            $table->string('statut')->nullable();
             $table->date('date_RMH');  
-            $table->integer('numero_ticket');
-            $table->decimal('montant');
+            // $table->integer('numero_ticket');
+            // $table->decimal('montant');
             $table->string('Pm');
-            $table->integer('numero_de_dossier');
+            // $table->integer('numero_de_dossier');
+            $table->decimal('montant_debiter');
             $table->timestamps();
         });
     }

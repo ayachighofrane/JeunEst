@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CardController;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\File;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/partenaires', [App\Http\Controllers\AuthController::class, 'partenaires'])->name('partenaires');
+Route::get('/benificiers', [App\Http\Controllers\AuthController::class, 'benificiers'])->name('benificiers');
+
+
+
+Route::delete('/delete/{id}', [App\Http\Controllers\CardController::class, 'delete'])->name('delete.beneficier');
+
+Route::post('/generate-card/{id}', [App\Http\Controllers\CardController::class, 'generateCard'])->name('generate.card');
+
+
+Route::delete('/deletepartenaire/{id}', [App\Http\Controllers\CardController::class, 'deletepartenaire'])->name('delete.partenaire');
